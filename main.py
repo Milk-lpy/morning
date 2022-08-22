@@ -5,6 +5,7 @@ from wechatpy.client.api import WeChatMessage, WeChatTemplate
 import requests
 import os
 import random
+import re
 
 today = datetime.now()
 start_date = os.environ['START_DATE']
@@ -35,8 +36,12 @@ def get_birthday():
   return (next - today).days
 
 def get_words():
-  words = requests.get("https://v.api.aa1.cn/api/yiyan/index.php")
-  words = words.text
+  a = requests.get("https://v.api.aa1.cn/api/yiyan/index.php")
+  a = a.text
+  a1 = re.findall(r"<p>(.+)</p>",a)
+  a1 =a1[0]
+  return words =a1+"😄"
+  
   return words
 
 def get_random_color():

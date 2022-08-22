@@ -39,8 +39,9 @@ def get_words():
   a = requests.get("https://v.api.aa1.cn/api/yiyan/index.php")
   a = a.text
   a1 = re.findall(r"<p>(.+)</p>",a)
-  a1 =a1[0]
-  return words[a1+"😄"]
+  a1 = a1[0]
+  words = a1+"😄" 
+  return words['words']
 
 def get_random_color():
   return "#%06x" % random.randint(0, 0xFFFFFF)

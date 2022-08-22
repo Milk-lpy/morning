@@ -36,7 +36,8 @@ def get_birthday():
 
 def get_words():
   words = requests.get("https://v.api.aa1.cn/api/yiyan/index.php")
-  return words.['p']['text']
+  words = words.text
+  return words
 
 def get_random_color():
   return "#%06x" % random.randint(0, 0xFFFFFF)

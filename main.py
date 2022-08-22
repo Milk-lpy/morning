@@ -40,9 +40,7 @@ def get_words():
   a = a.text
   a1 = re.findall(r"<p>(.+)</p>",a)
   a1 =a1[0]
-  return words =a1+"😄"
-  
-  return words
+  return words[a1+"😄"]
 
 def get_random_color():
   return "#%06x" % random.randint(0, 0xFFFFFF)
